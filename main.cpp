@@ -2,31 +2,42 @@
 #include "Window.h"
 #include "Renderer.h"
 #include "Triangle.h"
+#include "Camera.h"
+
+Window* m_Window; 
+Renderer* m_Renderer; 
+Triangle* m_Triangle; 
+Camera* m_Camera; 
+
 
 int CALLBACK WinMain(HINSTANCE appInstance, HINSTANCE prevInstance, LPSTR cmdLine, int cmdCount) 
 {
 	//Create window
-	Window window(800, 600);
-	Renderer renderer(window);
-	Triangle triangle(renderer);
+	m_Window = new Window(800, 600); 
+	m_Renderer = new Renderer(*m_Window); 
+	m_Triangle = new Triangle(*m_Renderer);
+	m_Camera = new Camera; 
 
 	MSG msg = { 0 };
-	while (true) {
-		if (PeekMessage(&msg, 0, 0, 0, PM_REMOVE)) {
+	while (true) 
+	{
+		if (PeekMessage(&msg, 0, 0, 0, PM_REMOVE)) 
+		{
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 
-			if (msg.message == WM_QUIT) {
+			if (msg.message == WM_QUIT) 
 				break;
-			}
+
 		}
 
-		renderer.beginFrame();
+		m_Renderer->beginFrame();
 
 		//Draw scene
-		triangle.draw(renderer);
+		m_Triangle->draw(*m_Renderer);
+		m_Camera->updateCamera();  
 
-		renderer.endFrame();
+		m_Renderer->endFrame();
 	}
 
 	return 0;
