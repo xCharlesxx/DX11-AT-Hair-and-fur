@@ -13,7 +13,6 @@ public:
 private:
 	HWND m_handle;
 	Input m_input; 
-
 };
 static LRESULT CALLBACK WinProc(HWND, UINT, WPARAM, LPARAM);
 static Window* ApplicationHandle = 0;
