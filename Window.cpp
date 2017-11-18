@@ -1,6 +1,6 @@
 #include "Window.h"
-
-Window::Window(int width, int height) 
+#include "AntTweakBar.h"
+Window::Window(int width, int height)
 {
 	//Set window Params
 	WNDCLASS wc = { 0 };
@@ -28,6 +28,11 @@ LRESULT CALLBACK WinProc(HWND handle, UINT msg, WPARAM wparam, LPARAM lparam)
 
 LRESULT CALLBACK Window::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
 {
+
+	if (TwEventWin(hwnd, umsg, wparam, lparam)) // send event message to AntTweakBar
+		return 0; // event has been handled by AntTweakBar
+				  // else process the event message
+				  // ...
 	switch (umsg)
 	{
 			//Check if a key has been pressed on the keyboard.
