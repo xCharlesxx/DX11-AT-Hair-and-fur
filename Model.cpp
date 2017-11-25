@@ -71,3 +71,26 @@ bool Model::getModel(const char* pFile)
 	// We're done. Everything will be cleaned up by the importer destructor
 	return true;
 }
+
+void Model::draw(Renderer & renderer)
+{
+	auto deviceContext = renderer.getDeviceContext();
+
+	////Set render states
+	//deviceContext->RSSetState(m_rasterizerState);
+	//deviceContext->OMSetBlendState(m_blendState, NULL, 0xffffffff);
+	//deviceContext->OMSetDepthStencilState(m_depthState, 1);
+
+	////Bind the triangle shaders
+	//deviceContext->IASetInputLayout(m_inputLayout);
+	//deviceContext->VSSetShader(m_vertexShader, nullptr, 0);
+	//deviceContext->PSSetShader(m_pixelShader, nullptr, 0);
+
+	//Bind the vertex buffer
+	UINT stride = sizeof(Vertice);
+	UINT offset = 0;
+	deviceContext->IASetVertexBuffers(0, 1, &m_vertexBuffer, &stride, &offset);
+
+	//Draw
+	deviceContext->Draw(3, 0);
+}

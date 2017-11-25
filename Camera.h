@@ -17,6 +17,9 @@ public:
 private:
 	float camPosX = 0.0f, camPosY = 0.0f, camPosZ = 0.0f;
 	float camYaw = 0.0f, camPitch = 0.0f, camRoll = 0.0f; 
-	XMMATRIX m_viewMatrix;
+	XMMATRIX m_viewMatrix, rotationMatrix;
+	XMFLOAT3 up, position, lookAt;
+	XMVECTOR upVector, positionVector, lookAtVector;
+	float yaw, pitch, roll;
 };
 

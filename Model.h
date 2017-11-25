@@ -8,7 +8,7 @@
 #include <d3d11.h>
 #include <directxmath.h>
 #include "Debug.h"
-
+#include "Renderer.h"
 using namespace DirectX; 
 
 class Model
@@ -16,6 +16,7 @@ class Model
 public:
 	Model();
 	bool getModel(const char* pFile);
+	void draw(Renderer& renderer);
 private:
 	Debug m_debug;
 	ID3D11Buffer *m_vertexBuffer, *m_indexBuffer;

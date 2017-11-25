@@ -1,8 +1,10 @@
-﻿  main.cpp
+﻿  Camera.cpp
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Generating Code...
+  Compiling...
+  main.cpp
   c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
 d:\charlie\dx11-at-hair-and-fur\main.cpp(24): warning C4316: 'Camera': object allocated on the heap may not be aligned 16
-  Model.cpp
-d:\charlie\dx11-at-hair-and-fur\model.cpp(54): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
   DX11 AT Hair and fur.vcxproj -> D:\Charlie\DX11-AT-Hair-and-fur\Debug\DX11 AT Hair and fur.exe
   DX11 AT Hair and fur.vcxproj -> D:\Charlie\DX11-AT-Hair-and-fur\Debug\DX11 AT Hair and fur.pdb (Partial PDB)

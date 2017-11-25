@@ -36,7 +36,6 @@ void Renderer::createRenderTarget()
 	ID3D11Texture2D* backBuffer;
 	m_swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (void**) &backBuffer);
 	m_device->CreateRenderTargetView(backBuffer, nullptr, &m_renderTargetView);
-
 	backBuffer->GetDesc(&m_backBufferDesc);
 	backBuffer->Release();
 }
