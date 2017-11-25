@@ -23,7 +23,8 @@ int CALLBACK WinMain(HINSTANCE appInstance, HINSTANCE prevInstance, LPSTR cmdLin
 	m_Triangle = new Triangle(*m_Renderer);
 	m_Camera = new Camera; 
 	m_debug = new Debug; 
-	//m_model = new Model(); 
+	m_model = new Model(); 
+	m_model->getModel("Assets/only_quad_sphere.obj");
 	TwInit(TW_DIRECT3D11, m_Renderer->getDevice());
 	MakeAntTweakBar();
 	MSG msg = { 0 };

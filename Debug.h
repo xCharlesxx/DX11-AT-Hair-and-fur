@@ -7,5 +7,6 @@ public:
 	Debug();
 	void Output(std::string message);
 private:
-
+	std::string lastMessage;
+	int windSize = 50;
 };

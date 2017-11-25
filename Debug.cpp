@@ -4,17 +4,27 @@
 
 Debug::Debug()
 {
+	_SMALL_RECT rect;
+	rect.Top = 0;
+	rect.Left = 0;
+	rect.Bottom = rect.Top + windSize;
+	rect.Right = rect.Left + windSize;
 	if (AllocConsole())
 	{
 		freopen("CONOUT$", "w", stdout);
 		SetConsoleTitle("Debug Console");
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+		SetConsoleWindowInfo(GetStdHandle(STD_OUTPUT_HANDLE), TRUE, &rect);
 		AttachConsole(GetCurrentProcessId());
-		std::cout << "Debug Console Initialised." << std::endl;
 	}
 }
 
 void Debug::Output(std::string message)
 {
-	std::cout << message + "\n"; 
+	if (message != lastMessage)
+	{
+		std::cout << message + "\n";
+		lastMessage = message;
+	}
+
 }
