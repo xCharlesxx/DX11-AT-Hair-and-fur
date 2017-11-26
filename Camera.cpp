@@ -57,10 +57,3 @@ void Camera::updateCamera()
 
 	return;
 }
-
-
-void Camera::GetViewMatrix(XMMATRIX& viewMatrix)
-{
-	viewMatrix = m_viewMatrix;
-	return;
-}

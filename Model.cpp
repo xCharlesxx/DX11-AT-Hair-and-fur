@@ -2,7 +2,7 @@
 #include <DirectXMath.h>
 Model::Model()
 {
-	
+	transform = XMVectorSet(posX, posY, posZ, 0);
 }
 
 bool Model::getModel(const char* pFile)
@@ -42,9 +42,9 @@ bool Model::getModel(const char* pFile)
 		m_debug.Output("Error Loading Vertices");
 	//indices = new unsigned long[m_indexCount]; 
 	//if (indices)
-	//	m_debug.Output("Error Loading Indicies");
+	m_debug.Output(std::to_string(vertices.size()));
 
-	for (int i = 0; i<8; i++)
+	for (int i = 0; i < vertices.size(); i++)
 	{
 		{
 			aiVector3D pos = mesh->mVertices[i];
@@ -54,7 +54,8 @@ bool Model::getModel(const char* pFile)
 		}
 	}
 	
-	for (int i = 0; i < mesh->mNumFaces; i++) {
+	for (int i = 0; i < mesh->mNumFaces; i++) 
+	{
 		const aiFace& Face = mesh->mFaces[i];
 		if (Face.mNumIndices == 3) {
 			indices.push_back(Face.mIndices[0]);

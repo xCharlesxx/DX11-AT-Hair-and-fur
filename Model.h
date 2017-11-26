@@ -17,13 +17,16 @@ public:
 	Model();
 	bool getModel(const char* pFile);
 	void draw(Renderer& renderer);
+	XMVECTOR getTransform() { return transform; };
 private:
 	Debug m_debug;
 	ID3D11Buffer *m_vertexBuffer, *m_indexBuffer;
 	int m_vertexCount, m_indexCount;
+	float posX = 0.0f, posY = 0.0f, posZ = 0.0f;
 	struct Vertice
 	{
 		XMFLOAT3 Pos; 
 		XMFLOAT3 colour; 
 	};
+	XMVECTOR transform; 
 };
