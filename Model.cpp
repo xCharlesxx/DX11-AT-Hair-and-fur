@@ -17,8 +17,11 @@ bool Model::getModel(const char* pFile)
 
 	auto modelFile = aiImportFile(pFile, aiProcessPreset_TargetRealtime_MaxQuality);
 	m_debug.Output("Number of meshes found in file: " + std::to_string(modelFile->mNumMeshes));
-	m_debug.Output("Number of vertices in first mesh: " + std::to_string(modelFile->mMeshes[0]->mNumVertices));
-
+	m_debug.Output("Number of vertices in meshes: ");
+	for (int i = 0; i < modelFile->mNumMeshes; i++)
+		m_debug.Output(std::to_string(i) + " " + std::to_string(modelFile->mMeshes[0]->mNumVertices));
+	
+		
 	// Create an instance of the Importer class
 	Assimp::Importer importer;
 	// And have it read the given file with some example postprocessing
