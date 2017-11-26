@@ -15,7 +15,7 @@ bool Model::getModel(const char* pFile)
 		m_debug.Output(aiGetErrorString());
 	}
 
-	auto modelFile = aiImportFile(pFile, aiProcessPreset_TargetRealtime_MaxQuality);
+	auto modelFile = aiImportFile(pFile, aiProcessPreset_TargetRealtime_Fast);
 	m_debug.Output("Number of meshes found in file: " + std::to_string(modelFile->mNumMeshes));
 	m_debug.Output("Number of vertices in meshes: ");
 	for (int i = 0; i < modelFile->mNumMeshes; i++)

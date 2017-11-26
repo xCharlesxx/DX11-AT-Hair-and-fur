@@ -1,4 +1,2 @@
-﻿  Model.cpp
-a:\github\newgithubrepo\dx11-at-hair-and-fur\model.cpp(21): warning C4018: '<': signed/unsigned mismatch
-a:\github\newgithubrepo\dx11-at-hair-and-fur\model.cpp(57): warning C4018: '<': signed/unsigned mismatch
-  DX11 AT Hair and fur.vcxproj -> A:\GitHub\NewGithubRepo\DX11-AT-Hair-and-fur\Debug\DX11 AT Hair and fur.exe
+﻿  DX11 AT Hair and fur.vcxproj -> D:\Charlie\DX11-AT-Hair-and-fur\Debug\DX11 AT Hair and fur.exe
+  DX11 AT Hair and fur.vcxproj -> D:\Charlie\DX11-AT-Hair-and-fur\Debug\DX11 AT Hair and fur.pdb (Partial PDB)
