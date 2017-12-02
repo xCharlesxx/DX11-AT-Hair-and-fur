@@ -70,10 +70,10 @@ void Triangle::createMesh(Renderer& renderer)
 void Triangle::createShaders(Renderer& renderer) 
 {
 	//Create shaders
-	ifstream vsFile("triangleVertexShader.cso", ios::binary);
+	ifstream vsFile("VertexShader.cso", ios::binary);
 	vector<char> vsData = { istreambuf_iterator<char>(vsFile), istreambuf_iterator<char>() };
 
-	ifstream psFile("trianglePixelShader.cso", ios::binary);
+	ifstream psFile("PixelShader.cso", ios::binary);
 	vector<char> psData = { istreambuf_iterator<char>(psFile), istreambuf_iterator<char>() };
 
 	renderer.getDevice()->CreateVertexShader(vsData.data(), vsData.size(), nullptr, &m_vertexShader);

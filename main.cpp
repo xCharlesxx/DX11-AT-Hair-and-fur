@@ -25,7 +25,7 @@ int CALLBACK WinMain(HINSTANCE appInstance, HINSTANCE prevInstance, LPSTR cmdLin
 	m_Camera = new Camera; 
 	m_debug = new Debug; 
 	m_input = new Input(m_Camera); 
-	m_model = new Model("Assets/Demon.obj", *m_Renderer);
+	m_model = new Model("Assets/Sphere.obj", *m_Renderer);
 	m_input->InitInput(appInstance, m_Window->getHandle());
 	TwInit(TW_DIRECT3D11, m_Renderer->getDevice());
 	MakeAntTweakBar();
@@ -42,10 +42,9 @@ int CALLBACK WinMain(HINSTANCE appInstance, HINSTANCE prevInstance, LPSTR cmdLin
 		}
 
 		m_Renderer->beginFrame();
-
 		//Draw scene
-		//m_Triangle->draw(*m_Renderer);
 		TwDraw();
+		//m_Triangle->draw(*m_Renderer);
 		m_model->draw(*m_Renderer);
 		m_Camera->updateCamera(); 
 		m_input->DetectInput();
@@ -59,7 +58,6 @@ int CALLBACK WinMain(HINSTANCE appInstance, HINSTANCE prevInstance, LPSTR cmdLin
 void MakeAntTweakBar()
 {
 	TwWindowSize(800, 600);
-
 	TwBar *myBar;
 	myBar = TwNewBar("Hair And Fur");
 	TwAddVarRW(myBar, "Cam xPos    ", TW_TYPE_FLOAT, m_Camera->getCamX(),

@@ -51,17 +51,18 @@ void Model::getModel(const char* pFile, Renderer& renderer)
 			vertices[i].Pos.x = pos.x;
 			vertices[i].Pos.y = pos.y;
 			vertices[i].Pos.z = pos.z;
+			m_debug.Output(std::to_string(vertices[0].Pos.x) + std::to_string(vertices[0].Pos.y) + std::to_string(vertices[0].Pos.z));
 		}
 	}
+	
+	m_debug.Output("Number of Faces: ");
+	m_debug.Output(std::to_string(mesh->mNumFaces));
 	
 	for (int i = 0; i < mesh->mNumFaces; i++) 
 	{
 		const aiFace& Face = mesh->mFaces[i];
-		if (Face.mNumIndices == 3) {
-			indices.push_back(Face.mIndices[0]);
-			indices.push_back(Face.mIndices[1]);
-			indices.push_back(Face.mIndices[2]);
-		}
+		for (int x = 0; x < Face.mNumIndices; x++)
+			indices.push_back(Face.mIndices[x]);
 	}
 
 	auto vertexBufferDesc = CD3D11_BUFFER_DESC(sizeof(vertices), D3D11_BIND_VERTEX_BUFFER);
