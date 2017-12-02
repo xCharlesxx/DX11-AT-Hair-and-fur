@@ -25,7 +25,7 @@ int CALLBACK WinMain(HINSTANCE appInstance, HINSTANCE prevInstance, LPSTR cmdLin
 	m_Camera = new Camera; 
 	m_debug = new Debug; 
 	m_input = new Input(m_Camera); 
-	m_model = new Model("Assets/only_quad_sphere.obj", *m_Renderer);
+	m_model = new Model("Assets/Demon.obj", *m_Renderer);
 	m_input->InitInput(appInstance, m_Window->getHandle());
 	TwInit(TW_DIRECT3D11, m_Renderer->getDevice());
 	MakeAntTweakBar();

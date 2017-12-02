@@ -1,4 +1,5 @@
-﻿  Renderer.cpp
+﻿  main.cpp
   c:\program files (x86)\windows kits\10\include\10.0.10586.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-a:\github\newgithubrepo\dx11-at-hair-and-fur\renderer.cpp(5): warning C4305: 'argument': truncation from 'double' to 'float'
+a:\github\newgithubrepo\dx11-at-hair-and-fur\main.cpp(25): warning C4316: 'Camera': object allocated on the heap may not be aligned 16
+a:\github\newgithubrepo\dx11-at-hair-and-fur\main.cpp(28): warning C4316: 'Model': object allocated on the heap may not be aligned 16
   DX11 AT Hair and fur.vcxproj -> A:\GitHub\NewGithubRepo\DX11-AT-Hair-and-fur\Debug\DX11 AT Hair and fur.exe
