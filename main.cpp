@@ -25,8 +25,7 @@ int CALLBACK WinMain(HINSTANCE appInstance, HINSTANCE prevInstance, LPSTR cmdLin
 	m_Camera = new Camera; 
 	m_debug = new Debug; 
 	m_input = new Input(m_Camera); 
-	m_model = new Model(); 
-	m_model->getModel("Assets/only_quad_sphere.obj");
+	m_model = new Model("Assets/only_quad_sphere.obj", *m_Renderer);
 	m_input->InitInput(appInstance, m_Window->getHandle());
 	TwInit(TW_DIRECT3D11, m_Renderer->getDevice());
 	MakeAntTweakBar();
@@ -60,7 +59,20 @@ int CALLBACK WinMain(HINSTANCE appInstance, HINSTANCE prevInstance, LPSTR cmdLin
 void MakeAntTweakBar()
 {
 	TwWindowSize(800, 600);
+
 	TwBar *myBar;
 	myBar = TwNewBar("Hair And Fur");
+	TwAddVarRW(myBar, "Cam xPos    ", TW_TYPE_FLOAT, m_Camera->getCamX(),
+		"min = -100 max = 100 step = 10 group = Camera Position");
+	TwAddVarRW(myBar, "Cam yPos    ", TW_TYPE_FLOAT, m_Camera->getCamY(),
+		"min = -100 max = 100 step = 10 group=Camera Position");
+	TwAddVarRW(myBar, "Cam zPos    ", TW_TYPE_FLOAT, m_Camera->getCamZ(),
+		"min = -100 max = 100 step = 10 group=Camera Position");
+	TwAddVarRW(myBar, "Background Colour    ", TW_TYPE_COLOR4F, m_Renderer->getColour(),
+		"min = -100 max = 100 step = 10 group = Camera Position");
+	TwAddVarRW(myBar, "Cam yPos    ", TW_TYPE_FLOAT, m_Camera->getCamY(),
+		"min = -100 max = 100 step = 10 group=Camera Position");
+	TwAddVarRW(myBar, "Cam zPos    ", TW_TYPE_FLOAT, m_Camera->getCamZ(),
+		"min = -100 max = 100 step = 10 group=Camera Position");
 	//TwAddVarRW(myBar, "NameOfMyVariable", TW, &myVar, "");
 }

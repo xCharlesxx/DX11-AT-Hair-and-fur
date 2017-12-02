@@ -2,6 +2,7 @@
 
 Renderer::Renderer(Window& window) 
 {
+	colour = XMFLOAT4(0.06, 0.50, 0.60, 0);
 	createDevice(window);
 	createRenderTarget();
 }
@@ -50,7 +51,7 @@ void Renderer::beginFrame()
 	m_deviceContext->RSSetViewports(1, &viewport);
 
 	//Set the background colour
-	float BackgroundColour[] = { 0, 0, 0, 0 };
+	float BackgroundColour[] = { colour.x, colour.y, colour.z, colour.w };
 	m_deviceContext->ClearRenderTargetView(m_renderTargetView, BackgroundColour);
 }
 

@@ -11,11 +11,14 @@ public:
 	void endFrame();
 	ID3D11Device* getDevice();
 	ID3D11DeviceContext* getDeviceContext();
+	XMFLOAT4* getColour() { return &colour; };
 
 private:
 	void createDevice(Window& window);
 	void createRenderTarget();
 
+	//Colour 
+	XMFLOAT4 colour; 
 	//Device stuff
 	IDXGISwapChain* m_swapChain = nullptr;
 	ID3D11Device* m_device = nullptr;

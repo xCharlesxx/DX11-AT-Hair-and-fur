@@ -32,4 +32,11 @@ void Input::DetectInput()
 
 	if (keyboardState[DIK_D] & 0x80 || keyboardState[DIK_RIGHT] & 0x80)
 		m_camera->goRight();
+
+	if (keyboardState[DIK_F] & 0x80)
+		m_camera->goForward();
+
+	if (keyboardState[DIK_B] & 0x80)
+		m_camera->goBackwards();
+
 }
