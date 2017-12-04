@@ -1,39 +1,42 @@
 #pragma once
-#include "DirectXMath.h"
+#include "GameObject.h"
 #include <dinput.h>
 #include <string>
+
 using namespace DirectX;
 
-class Camera
+class Camera : public GameObject
 {
 public:
-	Camera(); 
+	Camera(float _fieldOfView, float _aspectRatio, float _nearPlaneDistance, float _farPlaneDistance);
 	void updateCamera(); 
 	void SetViewMatrix(XMMATRIX& viewMatrix) { viewMatrix = m_viewMatrix; }
 	XMMATRIX getViewMatrix() { return m_viewMatrix; }
 
-	void goLeft() { camPosX--; };
-	void goRight() { camPosX++; };
-	void goUp() { camPosY--; };
-	void goDown() { camPosY++; };
-	void goForward() { camPosZ--; };
-	void goBackwards() { camPosZ++; };
-	float* getCamX() { return &camPosX; };
-	float* getCamY() { return &camPosY; };
-	float* getCamZ() { return &camPosZ; };
-	void setPos(float x, float y, float z) { camPosX = x; camPosY = y; camPosZ = z; }
-	void setRot(float x, float y, float z) { camYaw = x; camPitch = y; camRoll = z; }
-	
-	XMFLOAT3 getPos() { return XMFLOAT3(camPosX, camPosY, camPosZ); }
-	XMFLOAT3 getRot() { return XMFLOAT3(camYaw, camPitch, camRoll); }
-	std::string getPosStr() { return std::to_string(camPosX) + ", " + std::to_string(camPosY) + ", " + std::to_string(camPosZ); }
-	std::string getRotStr() { return std::to_string(camYaw) + ", " + std::to_string(camPitch) + ", " + std::to_string(camRoll); }
+	void goLeft() { m_posx--; };
+	void goRight() { m_posx++; };
+	void goUp() { m_posy++; };
+	void goDown() { m_posy--; };
+	void goForward() { m_posz++; };
+	void goBackwards() { m_posz--; };
+
+	std::string getPosStr() { return std::to_string(m_posx) + ", " + std::to_string(m_posy) + ", " + std::to_string(m_posz); }
+	std::string getRotStr() { return std::to_string(m_yaw) + ", " + std::to_string(m_pitch) + ", " + std::to_string(m_roll); }
+	virtual void draw(DrawData* _DD) override;
 private:
-	float camPosX = 0.0f, camPosY = 0.0f, camPosZ = 5.0f;
-	float camYaw = 0.0f, camPitch = 0.0f, camRoll = 0.0f; 
-	XMMATRIX m_viewMatrix, rotationMatrix, m_world, m_camProjection;
-	XMFLOAT3 up, position, lookAt;
-	XMVECTOR upVector, positionVector, lookAtVector;
-	float yaw, pitch, roll;
+	XMMATRIX m_viewMatrix, m_camProjection;
+	XMFLOAT3 m_up, m_positition, m_lookAt;
+	XMVECTOR upVector, lookAtVector;
+	//parameters for setting up a camera
+	float m_fieldOfView;
+	float m_aspectRatio;
+	float m_nearPlaneDistance;
+	float m_farPlaneDistance;
+	struct cbPerObject
+	{
+		XMMATRIX  WVP;
+	};
+
+	cbPerObject cbPerObj;
 };
 

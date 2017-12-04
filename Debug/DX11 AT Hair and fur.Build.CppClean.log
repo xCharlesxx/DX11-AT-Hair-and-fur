@@ -1,18 +1,27 @@
-d:\charlie\dx11-at-hair-and-fur\debug\vc141.pdb
-d:\charlie\dx11-at-hair-and-fur\debug\vc141.idb
-d:\charlie\dx11-at-hair-and-fur\debug\camera.obj
-d:\charlie\dx11-at-hair-and-fur\debug\debug.obj
-d:\charlie\dx11-at-hair-and-fur\debug\input.obj
-d:\charlie\dx11-at-hair-and-fur\debug\main.obj
-d:\charlie\dx11-at-hair-and-fur\debug\model.obj
-d:\charlie\dx11-at-hair-and-fur\debug\renderer.obj
-d:\charlie\dx11-at-hair-and-fur\debug\triangle.obj
-d:\charlie\dx11-at-hair-and-fur\trianglepixelshader.cso
-d:\charlie\dx11-at-hair-and-fur\trianglevertexshader.cso
-d:\charlie\dx11-at-hair-and-fur\debug\dx11 at .4ff0fb4e.tlog\cl.command.1.tlog
-d:\charlie\dx11-at-hair-and-fur\debug\dx11 at .4ff0fb4e.tlog\cl.read.1.tlog
-d:\charlie\dx11-at-hair-and-fur\debug\dx11 at .4ff0fb4e.tlog\cl.write.1.tlog
-d:\charlie\dx11-at-hair-and-fur\debug\dx11 at .4ff0fb4e.tlog\dx11 at hair and fur.write.1u.tlog
-d:\charlie\dx11-at-hair-and-fur\debug\dx11 at .4ff0fb4e.tlog\fxc.command.1.tlog
-d:\charlie\dx11-at-hair-and-fur\debug\dx11 at .4ff0fb4e.tlog\fxc.read.1.tlog
-d:\charlie\dx11-at-hair-and-fur\debug\dx11 at .4ff0fb4e.tlog\fxc.write.1.tlog
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\vc141.pdb
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\vc141.idb
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\camera.obj
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\debug.obj
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\gameobject.obj
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\input.obj
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\lighting.obj
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\main.obj
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\model.obj
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\renderer.obj
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\triangle.obj
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\window.obj
+a:\github\newgithubrepo\dx11-at-hair-and-fur\pixelshader.cso
+a:\github\newgithubrepo\dx11-at-hair-and-fur\vertexshader.cso
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\dx11 at hair and fur.exe
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\dx11 at hair and fur.ilk
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\dx11 at hair and fur.pdb
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\dx11 at .4ff0fb4e.tlog\cl.command.1.tlog
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\dx11 at .4ff0fb4e.tlog\cl.read.1.tlog
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\dx11 at .4ff0fb4e.tlog\cl.write.1.tlog
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\dx11 at .4ff0fb4e.tlog\dx11 at hair and fur.write.1u.tlog
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\dx11 at .4ff0fb4e.tlog\fxc.command.1.tlog
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\dx11 at .4ff0fb4e.tlog\fxc.read.1.tlog
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\dx11 at .4ff0fb4e.tlog\fxc.write.1.tlog
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\dx11 at .4ff0fb4e.tlog\link.command.1.tlog
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\dx11 at .4ff0fb4e.tlog\link.read.1.tlog
+a:\github\newgithubrepo\dx11-at-hair-and-fur\debug\dx11 at .4ff0fb4e.tlog\link.write.1.tlog

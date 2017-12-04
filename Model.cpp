@@ -1,11 +1,11 @@
 #include "Model.h"
+#include "DrawData.h"
 
-Model::Model(const char* pFile, Renderer& renderer)
+Model::Model(const char* pFile, DrawData* _DD)
 {
-	getModel(pFile, renderer);
-	createShaders(renderer);
-	createRenderStates(renderer);
-	transform = XMVectorSet(posX, posY, posZ, 0);
+	getModel(pFile, *_DD->m_renderer);
+	createShaders(*_DD->m_renderer);
+	createRenderStates(*_DD->m_renderer);
 }
 
 Model::~Model()
@@ -18,7 +18,7 @@ Model::~Model()
 	m_depthState->Release();
 	m_blendState->Release();
 }
-void Model::getModel(const char* pFile, Renderer& renderer)
+void Model::getModel(const char* pFile, Renderer & renderer)
 {
 	//Check if files are available
 	if (aiImportFile(pFile, aiProcessPreset_TargetRealtime_MaxQuality))
@@ -116,9 +116,9 @@ void Model::createRenderStates(Renderer& renderer)
 		D3D11_STENCIL_OP_KEEP, D3D11_STENCIL_OP_KEEP, D3D11_STENCIL_OP_KEEP, D3D11_COMPARISON_ALWAYS);
 	renderer.getDevice()->CreateDepthStencilState(&depthDesc, &m_depthState);
 }
-void Model::draw(Renderer & renderer)
+void Model::draw(DrawData* _DD)
 {
-	auto deviceContext = renderer.getDeviceContext();
+	auto deviceContext = _DD->m_renderer->getDeviceContext();
 
 	////Set render states
 	deviceContext->RSSetState(m_rasterizerState);

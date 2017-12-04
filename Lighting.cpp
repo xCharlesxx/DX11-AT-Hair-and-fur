@@ -1,25 +1,30 @@
-//#include "Lighting.h"
-//
-//
-//
-//Lighting::Lighting()
-//{
-//}
-//
-//XMFLOAT3 Lighting::ShiftTangent(XMFLOAT3 T, XMFLOAT3 N, float shift)
-//{
+#include "Lighting.h"
+
+
+Lighting::Lighting(XMFLOAT3 _pos, XMFLOAT4 _colour)
+{
+	setPos(_pos.x, _pos.y, _pos.z); 
+}
+
+XMFLOAT3 Lighting::ShiftTangent(XMFLOAT3 T, XMFLOAT3 N, float shift)
+{
 //	XMFLOAT3 shiftedT = T + shift * N; 
 //	return normalize (shiftedT);
-//}
+	return XMFLOAT3(0, 0, 0);
+}
 //
-//float Lighting::StrandSpecular(XMFLOAT3 T, XMFLOAT3 V, XMFLOAT3 L, float exponent)
-//{
+float Lighting::StrandSpecular(XMFLOAT3 T, XMFLOAT3 V, XMFLOAT3 L, float exponent)
+{
 //	XMFLOAT3 H = normalize(L + V);
 //	float dotTH = dot(T, H); 
 //	float sinTH = sqrt(1.0f - dotTH*dotTH);
 //	float dirAtten = smoothstep(-1f, 0f, dot(T, H));
 //	return dirAtten * pow(sinTH, exponent); 
-//}
+	return 0.0f; 
+}
+void Lighting::draw(DrawData * _DD)
+{
+}
 //
 //
 //

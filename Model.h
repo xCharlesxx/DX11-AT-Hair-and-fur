@@ -10,19 +10,22 @@
 #include <directxmath.h>
 #include "Debug.h"
 #include "Renderer.h"
+#include "gameobject.h"
+
 using namespace std;
 using namespace DirectX; 
 
-class Model
+class Model : public GameObject
 {
 public:
-	Model(const char* pFile, Renderer& renderer);
+	Model(const char* pFile, DrawData* _DD);
 	~Model();
 	void getModel(const char* pFile, Renderer& renderer);
 	void createShaders(Renderer& renderer);
 	void createRenderStates(Renderer& renderer);
-	void draw(Renderer& renderer);
-	XMVECTOR getTransform() { return transform; };
+	virtual void draw(DrawData* _DD) override;
+	//void draw(Renderer& renderer);
+	//XMVECTOR getTransform() { return transform; };
 private:
 	Debug m_debug;
 	ID3D11Buffer *m_vertexBuffer, *m_indexBuffer;
@@ -34,11 +37,9 @@ private:
 	ID3D11BlendState* m_blendState = nullptr;
 
 	int m_vertexCount, m_indexCount;
-	float posX = 0.0f, posY = 0.0f, posZ = 0.0f;
 	struct Vertice
 	{
 		XMFLOAT3 Pos; 
 		XMFLOAT3 Colour; 
 	};
-	XMVECTOR transform; 
 };
