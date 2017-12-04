@@ -1,5 +1,5 @@
 struct Input {
-	float2 position : POSITION;
+	float3 position : POSITION;
 	float3 color : COLOR;
 };
 
@@ -19,6 +19,7 @@ cbuffer Object :register(b0)
 cbuffer Frame :register(b1)
 {
 	matrix m_view;
+	matrix m_projection; 
 }
 
 Output main(Input input) {
@@ -27,6 +28,8 @@ Output main(Input input) {
 	output.position = mul(input.position, m_model);
 
 	output.position = mul(output.position, m_view);
+
+	output.position = mul(output.position, m_projection);
 
 	output.world_pos = mul(input.position, m_model);
 

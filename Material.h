@@ -12,25 +12,28 @@ public:
 	void createBuffers(DrawData *_DD); 
 	void setTransformMatrix(const XMMATRIX &transMatrix) { obj.transform = transMatrix; };
 	void setViewMatrix(const XMMATRIX &viewMatrix) { frame.view = viewMatrix; };
-	void setProjectionMatrix(const XMMATRIX &projMatrix) {}; 
+	void setProjectionMatrix(const XMMATRIX &projMatrix) { frame.proj = projMatrix; };
 	void setCameraPos(XMVECTOR pos) {}; 
 	void setBuffers(DrawData *_DD); 
 	void updateBuffers(DrawData *_DD);
+
+	struct VSFRAMEBUFFER
+	{
+		XMMATRIX view;
+		XMMATRIX proj;
+	};
+	struct VSOBJBUFFER
+	{
+		XMMATRIX transform;
+	};
+	VSFRAMEBUFFER frame;
+	VSOBJBUFFER obj;
+
 private: 
 	XMMATRIX m_transMateral; 
 	ID3D11Buffer* object_buffer = nullptr; 
 	ID3D11Buffer* frame_buffer = nullptr; 
 
-	struct VSFRAMEBUFFER
-	{
-		XMMATRIX view; 
-	};
-	struct VSOBJBUFFER
-	{
-		XMMATRIX transform; 
-	};
-	VSFRAMEBUFFER frame; 
-	VSOBJBUFFER obj; 
 
 };
 

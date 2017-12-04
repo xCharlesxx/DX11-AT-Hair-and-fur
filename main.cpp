@@ -60,18 +60,21 @@ int CALLBACK WinMain(HINSTANCE appInstance, HINSTANCE prevInstance, LPSTR cmdLin
 		}
 		m_model->tick(); 
 		m_Camera->tick(); 
+		m_Camera->updateCamera();
 		m_light->tick(); 
 		m_Renderer->beginFrame();
 		//Draw scene
 		m_Triangle->draw(*m_Renderer);
-		TwDraw();
-		m_material->setTransformMatrix(XMMatrixTranspose(m_model->getWorldMat()));
-		m_material->setViewMatrix(XMMatrixTranspose(m_Camera->getViewMatrix()));
+
+		m_material->obj.transform = XMMatrixTranspose(m_model->getWorldMat());
+		m_material->frame.view = XMMatrixTranspose(m_Camera->getViewMatrix());
+		m_material->frame.proj = XMMatrixTranspose(m_Camera->getProjMatrix());
 		m_model->draw(m_DD);
-		m_Camera->updateCamera(); 
 		m_input->DetectInput();
+		TwDraw();
 		m_Renderer->endFrame();
 		m_debug->Output("Camera Pos: " + m_Camera->getPosStr() + "\nCamera Rot: " + m_Camera->getRotStr() + "\n");
+		//m_debug->Output("ProjMatrix: " + std::to_string(m_Camera->getProjMatrix()));
 	}
 	TwTerminate();
 	return 0;

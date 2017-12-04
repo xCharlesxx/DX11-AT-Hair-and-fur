@@ -9,5 +9,31 @@ c:\program files (x86)\microsoft visual studio\2017\professional\vc\tools\msvc\1
           [
               _Ty=Material
           ]
+  Window.cpp
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Triangle.cpp
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Renderer.cpp
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\charlie\dx11-at-hair-and-fur\renderer.cpp(5): warning C4305: 'argument': truncation from 'double' to 'float'
+  Model.cpp
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\charlie\dx11-at-hair-and-fur\model.cpp(35): warning C4018: '<': signed/unsigned mismatch
+d:\charlie\dx11-at-hair-and-fur\model.cpp(47): warning C4018: '<': signed/unsigned mismatch
+d:\charlie\dx11-at-hair-and-fur\model.cpp(61): warning C4018: '<': signed/unsigned mismatch
+d:\charlie\dx11-at-hair-and-fur\model.cpp(64): warning C4018: '<': signed/unsigned mismatch
+  Material.cpp
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Lighting.cpp
+  Input.cpp
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\charlie\dx11-at-hair-and-fur\input.cpp(19): warning C4101: 'mouseCurrState': unreferenced local variable
+  GameObject.cpp
+  Debug.cpp
+d:\charlie\dx11-at-hair-and-fur\debug.cpp(14): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(242): note: see declaration of 'freopen'
+  Camera.cpp
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Generating Code...
   DX11 AT Hair and fur.vcxproj -> D:\Charlie\DX11-AT-Hair-and-fur\Debug\DX11 AT Hair and fur.exe
   DX11 AT Hair and fur.vcxproj -> D:\Charlie\DX11-AT-Hair-and-fur\Debug\DX11 AT Hair and fur.pdb (Partial PDB)

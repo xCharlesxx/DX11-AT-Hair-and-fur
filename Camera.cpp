@@ -27,6 +27,9 @@ void Camera::updateCamera()
 	//Translate the rotated camera position to the location of the viewer.
 	lookAtVector = XMVectorAdd(getPos(), lookAtVector);
 
+	//camera projection 
+	m_camProjection = XMMatrixPerspectiveFovLH(m_fieldOfView, m_aspectRatio, m_nearPlaneDistance, m_farPlaneDistance); 
+
 	//Finally create the view matrix from the three updated vectors.
 	m_viewMatrix = XMMatrixLookAtLH(getPos(), lookAtVector, upVector);
 
