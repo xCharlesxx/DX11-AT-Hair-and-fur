@@ -14,10 +14,12 @@ public:
 	GameObject();
 	virtual ~GameObject();
 	virtual void draw(DrawData* _DD) = 0;
+	void tick(); 
 
 	//getters
 	XMVECTOR		getPos() { return m_pos; }
 	XMVECTOR		getScale() { return m_scale; }
+	XMMATRIX     getWorldMat() { return m_worldMatrix; }
 	float*       getXPos() { return &m_posx; }
 	float*       getYPos() { return &m_posy; }
 	float*       getZPos() { return &m_posz; }

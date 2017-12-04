@@ -17,7 +17,7 @@ struct GSOutput
 [maxvertexcount(3)]
 void main(triangle float4 input[3] : SV_POSITION, inout TriangleStream<GSOutput> output)
 {
-//	for (uint i = 0; i < 3; i++)
+//	for (uint i = 0; i < 1; i = i + 0.1)
 //	{
 //		newVertexLayer(output, input[0].position + (input[0].normal * i), input[0].normal, i);
 //		newVertexLayer(output, input[1].position + (input[1].normal * i), input[1].normal, i);

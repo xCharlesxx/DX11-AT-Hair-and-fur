@@ -66,9 +66,16 @@ void Model::getModel(const char* pFile, Renderer & renderer)
 	}
 
 	auto vertexBufferDesc = CD3D11_BUFFER_DESC(sizeof(vertices), D3D11_BIND_VERTEX_BUFFER);
+	
 	D3D11_SUBRESOURCE_DATA vertexData = { 0 };
-	//vertexData.pSysMem = vertices;
+	vertexData.pSysMem = &vertices[0];
 	renderer.getDevice()->CreateBuffer(&vertexBufferDesc, &vertexData, &m_vertexBuffer);
+
+	auto indexBufferDesc = CD3D11_BUFFER_DESC(sizeof(indices), D3D11_BIND_INDEX_BUFFER);
+	D3D11_SUBRESOURCE_DATA indexData = { 0 };
+	indexData.pSysMem = &indices[0];
+	renderer.getDevice()->CreateBuffer(&indexBufferDesc, &indexData, &m_indexBuffer);
+
 }
 
 void Model::createShaders(Renderer & renderer)
@@ -119,6 +126,8 @@ void Model::createRenderStates(Renderer& renderer)
 void Model::draw(DrawData* _DD)
 {
 	auto deviceContext = _DD->m_renderer->getDeviceContext();
+	m_material->updateBuffers(_DD);
+	m_material->setBuffers(_DD);
 
 	////Set render states
 	deviceContext->RSSetState(m_rasterizerState);
@@ -134,7 +143,8 @@ void Model::draw(DrawData* _DD)
 	UINT stride = sizeof(Vertice);
 	UINT offset = 0;
 	deviceContext->IASetVertexBuffers(0, 1, &m_vertexBuffer, &stride, &offset);
-	
+	deviceContext->IASetIndexBuffer(m_indexBuffer, DXGI_FORMAT_R32_UINT, 0);
+
 	//Draw
 	deviceContext->Draw(m_vertexCount, 0);
 }

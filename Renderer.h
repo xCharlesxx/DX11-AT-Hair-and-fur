@@ -8,9 +8,9 @@ class Renderer
 public:
 	Renderer(Window& window);
 	void beginFrame();
-	void endFrame();
-	ID3D11Device* getDevice();
-	ID3D11DeviceContext* getDeviceContext();
+	void endFrame() { m_swapChain->Present(0, 0); };
+	ID3D11Device* getDevice() { return m_device; };
+	ID3D11DeviceContext* getDeviceContext() { return m_deviceContext; } ;
 	XMFLOAT4* getColour() { return &colour; };
 
 private:

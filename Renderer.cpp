@@ -54,20 +54,3 @@ void Renderer::beginFrame()
 	float BackgroundColour[] = { colour.x, colour.y, colour.z, colour.w };
 	m_deviceContext->ClearRenderTargetView(m_renderTargetView, BackgroundColour);
 }
-
-void Renderer::endFrame() 
-{
-	//Swap the buffer
-	m_swapChain->Present(0, 0);
-	//1 = Vsync 2 = 30fps 
-}
-
-ID3D11Device* Renderer::getDevice() 
-{
-	return m_device;
-}
-
-ID3D11DeviceContext* Renderer::getDeviceContext() 
-{
-	return m_deviceContext;
-}

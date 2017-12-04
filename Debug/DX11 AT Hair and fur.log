@@ -1,10 +1,13 @@
-﻿  Model.cpp
-  c:\program files (x86)\windows kits\10\include\10.0.10586.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-a:\github\newgithubrepo\dx11-at-hair-and-fur\model.cpp(35): warning C4018: '<': signed/unsigned mismatch
-a:\github\newgithubrepo\dx11-at-hair-and-fur\model.cpp(47): warning C4018: '<': signed/unsigned mismatch
-a:\github\newgithubrepo\dx11-at-hair-and-fur\model.cpp(61): warning C4018: '<': signed/unsigned mismatch
-a:\github\newgithubrepo\dx11-at-hair-and-fur\model.cpp(64): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  main.cpp
-  DX11 AT Hair and fur.vcxproj -> A:\GitHub\NewGithubRepo\DX11-AT-Hair-and-fur\Debug\DX11 AT Hair and fur.exe
+﻿  main.cpp
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\charlie\dx11-at-hair-and-fur\main.cpp(31): warning C4316: 'Lighting': object allocated on the heap may not be aligned 16
+d:\charlie\dx11-at-hair-and-fur\main.cpp(38): warning C4316: 'Camera': object allocated on the heap may not be aligned 16
+d:\charlie\dx11-at-hair-and-fur\main.cpp(41): warning C4316: 'Model': object allocated on the heap may not be aligned 16
+c:\program files (x86)\microsoft visual studio\2017\professional\vc\tools\msvc\14.10.25017\include\memory(2054): warning C4316: 'Material': object allocated on the heap may not be aligned 16
+  d:\charlie\dx11-at-hair-and-fur\main.cpp(43): note: see reference to function template instantiation 'std::unique_ptr<Material,std::default_delete<_Ty>> std::make_unique<Material,>(void)' being compiled
+          with
+          [
+              _Ty=Material
+          ]
+  DX11 AT Hair and fur.vcxproj -> D:\Charlie\DX11-AT-Hair-and-fur\Debug\DX11 AT Hair and fur.exe
+  DX11 AT Hair and fur.vcxproj -> D:\Charlie\DX11-AT-Hair-and-fur\Debug\DX11 AT Hair and fur.pdb (Partial PDB)

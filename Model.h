@@ -11,6 +11,7 @@
 #include "Debug.h"
 #include "Renderer.h"
 #include "gameobject.h"
+#include "Material.h"
 
 using namespace std;
 using namespace DirectX; 
@@ -21,6 +22,7 @@ public:
 	Model(const char* pFile, DrawData* _DD);
 	~Model();
 	void getModel(const char* pFile, Renderer& renderer);
+	void setMaterial(Material* mat) { m_material = mat; };
 	void createShaders(Renderer& renderer);
 	void createRenderStates(Renderer& renderer);
 	virtual void draw(DrawData* _DD) override;
@@ -35,7 +37,7 @@ private:
 	ID3D11RasterizerState* m_rasterizerState = nullptr;
 	ID3D11DepthStencilState* m_depthState = nullptr;
 	ID3D11BlendState* m_blendState = nullptr;
-
+	Material* m_material; 
 	int m_vertexCount, m_indexCount;
 	struct Vertice
 	{

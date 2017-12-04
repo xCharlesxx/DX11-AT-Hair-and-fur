@@ -24,8 +24,13 @@ GameObject::~GameObject()
 
 void GameObject::draw(DrawData* _DD)
 {
+	
+}
+
+void GameObject::tick()
+{
 	//build up the world matrix depending on the new position of the GameObject
-	m_pos = XMVectorSet(m_posx, m_posy, m_posz, 0); 
+	m_pos = XMVectorSet(m_posx, m_posy, m_posz, 0);
 
 	XMMATRIX  scaleMat = XMMatrixScalingFromVector(m_scale);
 
@@ -35,7 +40,7 @@ void GameObject::draw(DrawData* _DD)
 	float roll = m_roll * 0.0174532925f;
 
 	////Create the rotation matrix from the yaw, pitch, and roll values.
-	m_rotationMatrix = XMMatrixRotationRollPitchYaw(pitch, yaw, roll); 
+	m_rotationMatrix = XMMatrixRotationRollPitchYaw(pitch, yaw, roll);
 
 	XMMATRIX transMat = XMMatrixTranslationFromVector(m_pos);
 
