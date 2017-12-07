@@ -20,7 +20,7 @@ public:
 	void goForward() { m_posz++; };
 	void goBackwards() { m_posz--; };
 
-	XMMATRIX m_viewMatrix, m_camProjection;
+	XMMATRIX m_viewMatrix, m_camProjection = XMMatrixIdentity();
 	virtual void draw(DrawData* _DD) override;
 private:
 	

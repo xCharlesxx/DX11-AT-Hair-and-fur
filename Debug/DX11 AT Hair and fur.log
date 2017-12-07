@@ -1,12 +1,45 @@
-﻿  main.cpp
-  c:\program files (x86)\windows kits\10\include\10.0.10586.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-a:\github\newgithubrepo\dx11-at-hair-and-fur\main.cpp(31): warning C4316: 'Lighting': object allocated on the heap may not be aligned 16
-a:\github\newgithubrepo\dx11-at-hair-and-fur\main.cpp(32): warning C4316: 'Camera': object allocated on the heap may not be aligned 16
-a:\github\newgithubrepo\dx11-at-hair-and-fur\main.cpp(40): warning C4316: 'Model': object allocated on the heap may not be aligned 16
-a:\programfiles\visual studio 2017\vc\tools\msvc\14.11.25503\include\memory(2438): warning C4316: 'Material': object allocated on the heap may not be aligned 16
-  a:\github\newgithubrepo\dx11-at-hair-and-fur\main.cpp(42): note: see reference to function template instantiation 'std::unique_ptr<Material,std::default_delete<_Ty>> std::make_unique<Material,,void>(void)' being compiled
+﻿  compilation object save succeeded; see D:\Charlie\DX11-AT-Hair-and-fur\Debug\GeometryShader.cso
+  compilation object save succeeded; see D:\Charlie\DX11-AT-Hair-and-fur\PixelShader.cso
+D:\Charlie\DX11-AT-Hair-and-fur\VertexShader.hlsl(28,20-47): warning X3206: 'mul': implicit truncation of vector type
+D:\Charlie\DX11-AT-Hair-and-fur\VertexShader.hlsl(34,21-48): warning X3206: 'mul': implicit truncation of vector type
+  
+  compilation object save succeeded; see D:\Charlie\DX11-AT-Hair-and-fur\VertexShader.cso
+  Window.cpp
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Triangle.cpp
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Renderer.cpp
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\charlie\dx11-at-hair-and-fur\renderer.cpp(5): warning C4305: 'argument': truncation from 'double' to 'float'
+  Model.cpp
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\charlie\dx11-at-hair-and-fur\model.cpp(37): warning C4018: '<': signed/unsigned mismatch
+d:\charlie\dx11-at-hair-and-fur\model.cpp(49): warning C4018: '<': signed/unsigned mismatch
+d:\charlie\dx11-at-hair-and-fur\model.cpp(63): warning C4018: '<': signed/unsigned mismatch
+d:\charlie\dx11-at-hair-and-fur\model.cpp(66): warning C4018: '<': signed/unsigned mismatch
+  Material.cpp
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  main.cpp
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\charlie\dx11-at-hair-and-fur\main.cpp(31): warning C4316: 'Lighting': object allocated on the heap may not be aligned 16
+d:\charlie\dx11-at-hair-and-fur\main.cpp(32): warning C4316: 'Camera': object allocated on the heap may not be aligned 16
+d:\charlie\dx11-at-hair-and-fur\main.cpp(40): warning C4316: 'Model': object allocated on the heap may not be aligned 16
+c:\program files (x86)\microsoft visual studio\2017\professional\vc\tools\msvc\14.10.25017\include\memory(2054): warning C4316: 'Material': object allocated on the heap may not be aligned 16
+  d:\charlie\dx11-at-hair-and-fur\main.cpp(42): note: see reference to function template instantiation 'std::unique_ptr<Material,std::default_delete<_Ty>> std::make_unique<Material,>(void)' being compiled
           with
           [
               _Ty=Material
           ]
-  DX11 AT Hair and fur.vcxproj -> A:\GitHub\NewGithubRepo\DX11-AT-Hair-and-fur\Debug\DX11 AT Hair and fur.exe
+  Lighting.cpp
+  Input.cpp
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\charlie\dx11-at-hair-and-fur\input.cpp(19): warning C4101: 'mouseCurrState': unreferenced local variable
+  GameObject.cpp
+  Debug.cpp
+d:\charlie\dx11-at-hair-and-fur\debug.cpp(14): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(242): note: see declaration of 'freopen'
+  Camera.cpp
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Generating Code...
+  DX11 AT Hair and fur.vcxproj -> D:\Charlie\DX11-AT-Hair-and-fur\Debug\DX11 AT Hair and fur.exe
+  DX11 AT Hair and fur.vcxproj -> D:\Charlie\DX11-AT-Hair-and-fur\Debug\DX11 AT Hair and fur.pdb (Partial PDB)

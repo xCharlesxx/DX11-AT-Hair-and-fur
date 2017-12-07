@@ -87,11 +87,11 @@ void MakeAntTweakBar()
 	TwBar *myBar;
 	myBar = TwNewBar("Hair And Fur");
 	TwAddVarRW(myBar, "Cam xPos", TW_TYPE_FLOAT, m_Camera->getXPos(),
-		"min = -100 max = 100 step = 10 group =Camera Position");
+		"min = -10000 max = 10000 step = 10 group =Camera Position");
 	TwAddVarRW(myBar, "Cam yPos", TW_TYPE_FLOAT, m_Camera->getYPos(),
-		"min = -100 max = 100 step = 10 group=Camera Position");
+		"min = -10000 max = 10000 step = 10 group=Camera Position");
 	TwAddVarRW(myBar, "Cam zPos", TW_TYPE_FLOAT, m_Camera->getZPos(),
-		"min = -100 max = 100 step = 10 group=Camera Position");
+		"min = -10000 max = 10000 step = 10 group=Camera Position");
 	TwAddVarRW(myBar, "Background Colour", TW_TYPE_COLOR4F, m_Renderer->getColour(),
 		"min = -100 max = 100 step = 10");
 }

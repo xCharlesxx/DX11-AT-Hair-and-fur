@@ -33,5 +33,7 @@ Output main(Input input) {
 
 	output.world_pos = mul(input.position, m_model);
 
+	output.color = input.color; 
+
 	return output;
 }

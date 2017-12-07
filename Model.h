@@ -38,7 +38,7 @@ private:
 	ID3D11DepthStencilState* m_depthState = nullptr;
 	ID3D11BlendState* m_blendState = nullptr;
 	Material* m_material; 
-	int m_vertexCount, m_indexCount;
+	int m_vertexCount, m_indexCount = 0;
 	struct Vertice
 	{
 		XMFLOAT3 Pos; 

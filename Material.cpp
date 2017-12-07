@@ -46,16 +46,20 @@ void Material::updateBuffers(DrawData *_DD)
 	D3D11_MAPPED_SUBRESOURCE vsObjMapping{ nullptr };
 	hr = _DD->m_renderer->getDeviceContext()->Map(object_buffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &vsObjMapping);
 	memcpy(vsObjMapping.pData, &obj, sizeof(VSOBJBUFFER));
+	_DD->m_renderer->getDeviceContext()->Unmap(object_buffer, 0);
 
 	D3D11_MAPPED_SUBRESOURCE vsFrameMapping{ nullptr };
 	hr = _DD->m_renderer->getDeviceContext()->Map(frame_buffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &vsFrameMapping);
 	memcpy(vsFrameMapping.pData, &frame, sizeof(VSFRAMEBUFFER));
+	_DD->m_renderer->getDeviceContext()->Unmap(frame_buffer, 0);
 }
 
 void Material::setBuffers(DrawData * _DD)
 {
-	ID3D11Buffer* vs_buffers[] = { frame_buffer, object_buffer };
-	_DD->m_renderer->getDeviceContext()->VSSetConstantBuffers(0, _countof(vs_buffers), vs_buffers);
+	//ID3D11Buffer* vs_buffers[] = { frame_buffer, object_buffer };
+	//_DD->m_renderer->getDeviceContext()->VSSetConstantBuffers(0, _countof(vs_buffers), vs_buffers);
+	_DD->m_renderer->getDeviceContext()->VSSetConstantBuffers(0, 1, &object_buffer);
+	_DD->m_renderer->getDeviceContext()->VSSetConstantBuffers(1, 1, &frame_buffer);
 }
 
 

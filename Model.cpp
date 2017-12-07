@@ -6,8 +6,8 @@ Model::Model(const char* pFile, DrawData* _DD)
 	getModel(pFile, *_DD->m_renderer);
 	createShaders(*_DD->m_renderer);
 	createRenderStates(*_DD->m_renderer);
-	this->setScale(XMVectorSet(1000, 1000, 1000, 0));
-	
+	this->setScale(XMVectorSet(1, 1, 1, 0));
+	this->setPos(0, 0, -1000);
 }
 
 Model::~Model()
@@ -66,14 +66,15 @@ void Model::getModel(const char* pFile, Renderer & renderer)
 		for (int x = 0; x < Face.mNumIndices; x++)
 			indices.push_back(Face.mIndices[x]);
 	}
+	m_indexCount = indices.size(); 
 
-	auto vertexBufferDesc = CD3D11_BUFFER_DESC(sizeof(vertices), D3D11_BIND_VERTEX_BUFFER);
+	auto vertexBufferDesc = CD3D11_BUFFER_DESC(sizeof(Vertice) * vertices.size(), D3D11_BIND_VERTEX_BUFFER);
 	
 	D3D11_SUBRESOURCE_DATA vertexData = { 0 };
 	vertexData.pSysMem = &vertices[0];
 	renderer.getDevice()->CreateBuffer(&vertexBufferDesc, &vertexData, &m_vertexBuffer);
 
-	auto indexBufferDesc = CD3D11_BUFFER_DESC(sizeof(indices), D3D11_BIND_INDEX_BUFFER);
+	auto indexBufferDesc = CD3D11_BUFFER_DESC(sizeof(UINT) * indices.size(), D3D11_BIND_INDEX_BUFFER);
 	D3D11_SUBRESOURCE_DATA indexData = { 0 };
 	indexData.pSysMem = &indices[0];
 	renderer.getDevice()->CreateBuffer(&indexBufferDesc, &indexData, &m_indexBuffer);
@@ -130,7 +131,7 @@ void Model::draw(DrawData* _DD)
 	auto deviceContext = _DD->m_renderer->getDeviceContext();
 	m_material->setTransformMatrix(XMMatrixTranspose(this->getWorldMat()));
 	m_material->setViewMatrix(XMMatrixTranspose(_DD->m_cam->getViewMatrix()));
-	m_material->setProjectionMatrix(XMMatrixTranspose(_DD->m_cam->getViewMatrix()));
+	m_material->setProjectionMatrix(XMMatrixTranspose(_DD->m_cam->getProjMatrix()));
 	m_material->updateBuffers(_DD);
 	m_material->setBuffers(_DD);
 	////Set render states
@@ -150,12 +151,8 @@ void Model::draw(DrawData* _DD)
 	deviceContext->IASetVertexBuffers(0, 1, &m_vertexBuffer, &stride, &offset);
 	deviceContext->IASetIndexBuffer(m_indexBuffer, DXGI_FORMAT_R32_UINT, 0);
 
-	//Draw
-	deviceContext->Draw(m_vertexCount, 0);
-
-	////New
-	//deviceContext->DrawIndexed(m_indexCount, 0, 0);
-	////New
+	////Draw
+	deviceContext->DrawIndexed(m_indexCount, 0, 0);
 }
 
 

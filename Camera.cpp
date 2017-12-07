@@ -9,7 +9,7 @@ Camera::Camera(float _fieldOfView, float _aspectRatio, float _nearPlaneDistance,
 
 	m_lookAt = XMFLOAT3(0, 0, 1);
 	m_up = XMFLOAT3(0, 1, 0);
-
+	
 	m_camProjection = XMMatrixPerspectiveFovLH(m_fieldOfView, m_aspectRatio, m_nearPlaneDistance, m_farPlaneDistance);
 }
 
