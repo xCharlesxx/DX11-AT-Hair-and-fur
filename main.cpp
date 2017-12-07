@@ -29,13 +29,12 @@ int CALLBACK WinMain(HINSTANCE appInstance, HINSTANCE prevInstance, LPSTR cmdLin
 	m_Window = new Window(800, 600);
 	m_Renderer = new Renderer(*m_Window); 
 	m_light = new Lighting(XMFLOAT3(0, 10, 0), XMFLOAT4(1, 1, 1, 1));
+	m_Camera = new Camera(0.4f*3.14f, (float)800 / 600, 1.0f, 1000.0f);
 	m_DD = new DrawData(); 
-	m_DD->m_pd3dImmediateContext = nullptr;
 	m_DD->m_renderer = m_Renderer;
 	m_DD->m_cam = m_Camera;
 	m_DD->m_light = m_light;
 	m_Triangle = new Triangle(*m_Renderer);
-	m_Camera = new Camera(0.4f*3.14f, (float)800 / 600, 1.0f, 1000.0f);
 	m_debug = new Debug; 
 	m_input = new Input(m_Camera); 
 	m_model = new Model("Assets/Sphere.obj", m_DD);
@@ -64,16 +63,18 @@ int CALLBACK WinMain(HINSTANCE appInstance, HINSTANCE prevInstance, LPSTR cmdLin
 		m_light->tick(); 
 		m_Renderer->beginFrame();
 		//Draw scene
-		m_Triangle->draw(*m_Renderer);
+		//m_Triangle->draw(*m_Renderer);
 
-		m_material->obj.transform = XMMatrixTranspose(m_model->getWorldMat());
+		/*m_material->obj.transform = XMMatrixTranspose(m_model->getWorldMat());
 		m_material->frame.view = XMMatrixTranspose(m_Camera->getViewMatrix());
-		m_material->frame.proj = XMMatrixTranspose(m_Camera->getProjMatrix());
+		m_material->frame.proj = XMMatrixTranspose(m_Camera->getProjMatrix());*/
+
 		m_model->draw(m_DD);
 		m_input->DetectInput();
 		TwDraw();
 		m_Renderer->endFrame();
-		m_debug->Output("Camera Pos: " + m_Camera->getPosStr() + "\nCamera Rot: " + m_Camera->getRotStr() + "\n");
+		m_debug->Output("Camera Pos: " + m_Camera->getPosStr() + "\nCamera Rot: " + m_Camera->getRotStr() + "\n\n"
+		              + "Model Pos: X: " + m_model->getPosStr() + "\nModel Rot: " + m_model->getRotStr());
 		//m_debug->Output("ProjMatrix: " + std::to_string(m_Camera->getProjMatrix()));
 	}
 	TwTerminate();

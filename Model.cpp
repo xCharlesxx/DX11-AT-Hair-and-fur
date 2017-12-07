@@ -6,6 +6,8 @@ Model::Model(const char* pFile, DrawData* _DD)
 	getModel(pFile, *_DD->m_renderer);
 	createShaders(*_DD->m_renderer);
 	createRenderStates(*_DD->m_renderer);
+	this->setScale(XMVectorSet(1000, 1000, 1000, 0));
+	
 }
 
 Model::~Model()
@@ -126,9 +128,11 @@ void Model::createRenderStates(Renderer& renderer)
 void Model::draw(DrawData* _DD)
 {
 	auto deviceContext = _DD->m_renderer->getDeviceContext();
+	m_material->setTransformMatrix(XMMatrixTranspose(this->getWorldMat()));
+	m_material->setViewMatrix(XMMatrixTranspose(_DD->m_cam->getViewMatrix()));
+	m_material->setProjectionMatrix(XMMatrixTranspose(_DD->m_cam->getViewMatrix()));
 	m_material->updateBuffers(_DD);
 	m_material->setBuffers(_DD);
-
 	////Set render states
 	deviceContext->RSSetState(m_rasterizerState);
 	deviceContext->OMSetBlendState(m_blendState, NULL, 0xffffffff);
@@ -148,6 +152,10 @@ void Model::draw(DrawData* _DD)
 
 	//Draw
 	deviceContext->Draw(m_vertexCount, 0);
+
+	////New
+	//deviceContext->DrawIndexed(m_indexCount, 0, 0);
+	////New
 }
 
 

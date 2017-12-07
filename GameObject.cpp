@@ -13,8 +13,8 @@ GameObject::GameObject()
 	m_posz = 0.0f;
 	m_scale = XMVectorSet(1, 1, 1, 0);
 	m_worldMatrix = XMMatrixIdentity(); 
-	m_fudge = XMMatrixIdentity(); 
-		//Matrix::CreateRotationY(1.6);
+	m_fudge = XMMatrixIdentity();
+	//Matrix::CreateRotationY(1.6);
 }
 
 GameObject::~GameObject()

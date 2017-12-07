@@ -20,8 +20,6 @@ public:
 	void goForward() { m_posz++; };
 	void goBackwards() { m_posz--; };
 
-	std::string getPosStr() { return std::to_string(m_posx) + ", " + std::to_string(m_posy) + ", " + std::to_string(m_posz); }
-	std::string getRotStr() { return std::to_string(m_yaw) + ", " + std::to_string(m_pitch) + ", " + std::to_string(m_roll); }
 	XMMATRIX m_viewMatrix, m_camProjection;
 	virtual void draw(DrawData* _DD) override;
 private:

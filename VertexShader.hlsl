@@ -12,14 +12,14 @@ struct Output {
 
 cbuffer Object :register(b0)
 {
-	matrix m_model;
+	float4x4 m_model;
 }
 
 
 cbuffer Frame :register(b1)
 {
-	matrix m_view;
-	matrix m_projection; 
+	float4x4 m_view;
+	float4x4 m_projection;
 }
 
 Output main(Input input) {

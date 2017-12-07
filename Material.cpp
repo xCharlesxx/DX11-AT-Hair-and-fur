@@ -47,7 +47,6 @@ void Material::updateBuffers(DrawData *_DD)
 	hr = _DD->m_renderer->getDeviceContext()->Map(object_buffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &vsObjMapping);
 	memcpy(vsObjMapping.pData, &obj, sizeof(VSOBJBUFFER));
 
-
 	D3D11_MAPPED_SUBRESOURCE vsFrameMapping{ nullptr };
 	hr = _DD->m_renderer->getDeviceContext()->Map(frame_buffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &vsFrameMapping);
 	memcpy(vsFrameMapping.pData, &frame, sizeof(VSFRAMEBUFFER));

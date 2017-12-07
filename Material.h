@@ -17,6 +17,11 @@ public:
 	void setBuffers(DrawData *_DD); 
 	void updateBuffers(DrawData *_DD);
 
+private: 
+	XMMATRIX m_transMateral; 
+	ID3D11Buffer* object_buffer = nullptr; 
+	ID3D11Buffer* frame_buffer = nullptr; 
+
 	struct VSFRAMEBUFFER
 	{
 		XMMATRIX view;
@@ -28,12 +33,5 @@ public:
 	};
 	VSFRAMEBUFFER frame;
 	VSOBJBUFFER obj;
-
-private: 
-	XMMATRIX m_transMateral; 
-	ID3D11Buffer* object_buffer = nullptr; 
-	ID3D11Buffer* frame_buffer = nullptr; 
-
-
 };
 

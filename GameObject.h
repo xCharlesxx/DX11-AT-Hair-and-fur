@@ -1,5 +1,6 @@
 #pragma once
 #include "DirectXMath.h"
+#include <string>
 
 using namespace DirectX;
 //using namespace DirectX::SimpleMath;
@@ -28,6 +29,9 @@ public:
 	float		getRoll() { return m_roll; }
 	bool		isPhysicsOn() { return m_physicsOn; }
 	float		getDrag() { return m_drag; }
+	std::string getPosStr() { return std::to_string(m_posx) + ", " + std::to_string(m_posy) + ", " + std::to_string(m_posz); }
+	std::string getRotStr() { return std::to_string(m_yaw) + ", " + std::to_string(m_pitch) + ", " + std::to_string(m_roll); }
+
 	//setters
 	void		setPos(float x, float y, float z) { m_posx = x; m_posy = y; m_posz = z; }
 	void		setScale(float _scale) { m_scale = _scale * XMVectorSet(1, 1, 1, 0); }

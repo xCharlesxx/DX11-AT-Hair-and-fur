@@ -15,7 +15,7 @@ void Renderer::createDevice(Window& window)
 	swapChainDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 	swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
 	swapChainDesc.OutputWindow = window.getHandle();
-	swapChainDesc.SampleDesc.Count = 1;
+	swapChainDesc.SampleDesc.Count = 8;
 	swapChainDesc.Windowed = true;
 	
 	//Create the swap chain, device and device context

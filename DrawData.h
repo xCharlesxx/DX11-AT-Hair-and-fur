@@ -9,8 +9,7 @@ class Lighting;
 
 struct DrawData
 {
-	ID3D11DeviceContext* m_pd3dImmediateContext;
-	Renderer* m_renderer; 
-	Camera* m_cam;
-	Lighting* m_light;
+	Renderer* m_renderer = nullptr; 
+	Camera* m_cam = nullptr;
+	Lighting* m_light = nullptr;
 };
