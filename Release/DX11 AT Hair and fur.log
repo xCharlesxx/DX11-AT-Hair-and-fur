@@ -1,48 +1,44 @@
-﻿  compilation object save succeeded; see D:\Charlie\DX11-AT-Hair-and-fur\Release\GeometryShader.cso
-  compilation object save succeeded; see D:\Charlie\DX11-AT-Hair-and-fur\Release\PixelShader.cso
-D:\Charlie\DX11-AT-Hair-and-fur\VertexShader.hlsl(28,20-47): warning X3206: 'mul': implicit truncation of vector type
-D:\Charlie\DX11-AT-Hair-and-fur\VertexShader.hlsl(34,21-48): warning X3206: 'mul': implicit truncation of vector type
-D:\Charlie\DX11-AT-Hair-and-fur\VertexShader.hlsl(25,11-24): warning X3578: 'main': Top-level return value is not completely initialized
-D:\Charlie\DX11-AT-Hair-and-fur\VertexShader.hlsl(25,11-24): warning X3578: 'main': Top-level return value is not completely initialized
-D:\Charlie\DX11-AT-Hair-and-fur\VertexShader.hlsl(25,11-24): warning X3578: 'main': Top-level return value is not completely initialized
-D:\Charlie\DX11-AT-Hair-and-fur\VertexShader.hlsl(25,11-24): warning X3578: Output value 'main' is not completely initialized
+﻿  compilation object save succeeded; see A:\GitHub\NewGithubRepo\DX11-AT-Hair-and-fur\Release\GeometryShader.cso
+  compilation object save succeeded; see A:\GitHub\NewGithubRepo\DX11-AT-Hair-and-fur\Release\PixelShader.cso
+A:\GitHub\NewGithubRepo\DX11-AT-Hair-and-fur\VertexShader.hlsl(28,20-47): warning X3206: 'mul': implicit truncation of vector type
+A:\GitHub\NewGithubRepo\DX11-AT-Hair-and-fur\VertexShader.hlsl(34,21-48): warning X3206: 'mul': implicit truncation of vector type
   
-  compilation object save succeeded; see D:\Charlie\DX11-AT-Hair-and-fur\Release\VertexShader.cso
+  compilation object save succeeded; see A:\GitHub\NewGithubRepo\DX11-AT-Hair-and-fur\Release\VertexShader.cso
   Camera.cpp
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10586.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Debug.cpp
 Debug.cpp(14): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(242): note: see declaration of 'freopen'
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10586.0\ucrt\stdio.h(240): note: see declaration of 'freopen'
   GameObject.cpp
   Input.cpp
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10586.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
 Input.cpp(19): warning C4101: 'mouseCurrState': unreferenced local variable
   Lighting.cpp
   main.cpp
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10586.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
 main.cpp(31): warning C4316: 'Lighting': object allocated on the heap may not be aligned 16
 main.cpp(32): warning C4316: 'Camera': object allocated on the heap may not be aligned 16
 main.cpp(40): warning C4316: 'Model': object allocated on the heap may not be aligned 16
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\include\memory(2054): warning C4316: 'Material': object allocated on the heap may not be aligned 16
-  main.cpp(42): note: see reference to function template instantiation 'std::unique_ptr<Material,std::default_delete<_Ty>> std::make_unique<Material,>(void)' being compiled
+A:\ProgramFiles\Visual Studio 2017\VC\Tools\MSVC\14.11.25503\include\memory(2438): warning C4316: 'Material': object allocated on the heap may not be aligned 16
+  main.cpp(42): note: see reference to function template instantiation 'std::unique_ptr<Material,std::default_delete<_Ty>> std::make_unique<Material,,void>(void)' being compiled
           with
           [
               _Ty=Material
           ]
   Material.cpp
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10586.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Model.cpp
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10586.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
 Model.cpp(37): warning C4018: '<': signed/unsigned mismatch
 Model.cpp(49): warning C4018: '<': signed/unsigned mismatch
 Model.cpp(63): warning C4018: '<': signed/unsigned mismatch
 Model.cpp(66): warning C4018: '<': signed/unsigned mismatch
   Renderer.cpp
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10586.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
 Renderer.cpp(5): warning C4305: 'argument': truncation from 'double' to 'float'
   Triangle.cpp
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10586.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Window.cpp
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10586.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
 LINK : fatal error LNK1104: cannot open file 'AntTweakBar.lib'

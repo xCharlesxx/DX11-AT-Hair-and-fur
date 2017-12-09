@@ -10,7 +10,6 @@ class Camera : public GameObject
 public:
 	Camera(float _fieldOfView, float _aspectRatio, float _nearPlaneDistance, float _farPlaneDistance);
 	void updateCamera(); 
-	void SetViewMatrix(XMMATRIX& viewMatrix) { viewMatrix = m_viewMatrix; }
 	XMMATRIX getViewMatrix() { return m_viewMatrix; }
 	XMMATRIX getProjMatrix() { return m_camProjection; }
 	void goLeft() { m_posx--; };
@@ -19,8 +18,6 @@ public:
 	void goDown() { m_posy--; };
 	void goForward() { m_posz++; };
 	void goBackwards() { m_posz--; };
-
-	XMMATRIX m_viewMatrix, m_camProjection = XMMatrixIdentity();
 	virtual void draw(DrawData* _DD) override;
 private:
 	
@@ -36,6 +33,8 @@ private:
 		XMMATRIX  WVP;
 	};
 
+	XMMATRIX m_viewMatrix = XMMatrixIdentity();
+	XMMATRIX m_camProjection = XMMatrixIdentity();
 	cbPerObject cbPerObj;
 };
 

@@ -9,7 +9,7 @@ Camera::Camera(float _fieldOfView, float _aspectRatio, float _nearPlaneDistance,
 
 	m_lookAt = XMFLOAT3(0, 0, 1);
 	m_up = XMFLOAT3(0, 1, 0);
-	
+	m_posz = -10; 
 	m_camProjection = XMMatrixPerspectiveFovLH(m_fieldOfView, m_aspectRatio, m_nearPlaneDistance, m_farPlaneDistance);
 }
 
@@ -27,10 +27,10 @@ void Camera::updateCamera()
 	upVector = XMVector3TransformCoord(upVector, m_rotationMatrix);
 
 	//Translate the rotated camera position to the location of the viewer.
-	lookAtVector = XMVectorAdd(getPos(), lookAtVector);
+	lookAtVector = XMVectorAdd(m_pos, lookAtVector);
 
 	//Finally create the view matrix from the three updated vectors.
-	m_viewMatrix = XMMatrixLookAtLH(getPos(), lookAtVector, upVector);
+	m_viewMatrix = XMMatrixLookAtLH(m_pos, lookAtVector, upVector);
 
 	return;
 }

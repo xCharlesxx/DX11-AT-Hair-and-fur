@@ -29,7 +29,6 @@ void Material::createBuffers(DrawData *_DD)
 		exit(0);
 	}
 
-
 	buffer_desc.ByteWidth = sizeof(obj);
 	hr = _DD->m_renderer->getDevice()->CreateBuffer(&buffer_desc, nullptr, &object_buffer);
 	if (hr != MB_OK)
@@ -37,7 +36,6 @@ void Material::createBuffers(DrawData *_DD)
 		MessageBox(nullptr, "[Material] (createBuffers) Failed to create object buffer", "Error", MB_OK);
 		exit(0);
 	}
-
 }
 
 void Material::updateBuffers(DrawData *_DD)

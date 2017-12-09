@@ -12,14 +12,15 @@
 #include <memory>
 Camera* m_Camera;
 Renderer* m_Renderer;
+Model* m_model;
+Debug* m_debug;
 void MakeAntTweakBar(); 
 
 int CALLBACK WinMain(HINSTANCE appInstance, HINSTANCE prevInstance, LPSTR cmdLine, int cmdCount) 
 {
 	Window* m_Window;
-	Triangle* m_Triangle;
-	Debug* m_debug;
-	Model* m_model;
+	//Triangle* m_Triangle;
+
 	Input* m_input;
 	DrawData* m_DD;
 	Lighting* m_light;
@@ -34,10 +35,10 @@ int CALLBACK WinMain(HINSTANCE appInstance, HINSTANCE prevInstance, LPSTR cmdLin
 	m_DD->m_renderer = m_Renderer;
 	m_DD->m_cam = m_Camera;
 	m_DD->m_light = m_light;
-	m_Triangle = new Triangle(*m_Renderer);
+	//m_Triangle = new Triangle(*m_Renderer);
 	m_debug = new Debug; 
 	m_input = new Input(m_Camera); 
-	m_model = new Model("Assets/Sphere.obj", m_DD);
+	m_model = new Model("Assets/Demon.obj", m_DD);
 
 	m_material = make_unique<Material>();
 
@@ -74,9 +75,10 @@ int CALLBACK WinMain(HINSTANCE appInstance, HINSTANCE prevInstance, LPSTR cmdLin
 		TwDraw();
 		m_Renderer->endFrame();
 		m_debug->Output("Camera Pos: " + m_Camera->getPosStr() + "\nCamera Rot: " + m_Camera->getRotStr() + "\n\n"
-		              + "Model Pos: X: " + m_model->getPosStr() + "\nModel Rot: " + m_model->getRotStr());
-		//m_debug->Output("ProjMatrix: " + std::to_string(m_Camera->getProjMatrix()));
+		              + "Model Pos: " + m_model->getPosStr() + "\nModel Rot: " + m_model->getRotStr());
+
 	}
+	m_debug->Output("Project Terminated");
 	TwTerminate();
 	return 0;
 }
@@ -86,12 +88,22 @@ void MakeAntTweakBar()
 	TwWindowSize(800, 600);
 	TwBar *myBar;
 	myBar = TwNewBar("Hair And Fur");
-	TwAddVarRW(myBar, "Cam xPos", TW_TYPE_FLOAT, m_Camera->getXPos(),
-		"min = -10000 max = 10000 step = 10 group =Camera Position");
-	TwAddVarRW(myBar, "Cam yPos", TW_TYPE_FLOAT, m_Camera->getYPos(),
-		"min = -10000 max = 10000 step = 10 group=Camera Position");
-	TwAddVarRW(myBar, "Cam zPos", TW_TYPE_FLOAT, m_Camera->getZPos(),
-		"min = -10000 max = 10000 step = 10 group=Camera Position");
+	if (!myBar)
+		m_debug->Output("ERROR AntTweakBarBroken!");
+	TwAddVarRW(myBar, "xPos", TW_TYPE_FLOAT, m_model->getXPos(),
+		"step = 100000 group=Model Position");
+	TwAddVarRW(myBar, "yPos", TW_TYPE_FLOAT, m_model->getYPos(),
+		"step = 100000 group=Model Position");
+	TwAddVarRW(myBar, "zPos", TW_TYPE_FLOAT, m_model->getZPos(),
+		"step = 100000 group=Model Position");
+	TwAddVarRW(myBar, "Yaw", TW_TYPE_FLOAT, m_model->getYaw(),
+		"step = 1 group=Model Position");
+	TwAddVarRW(myBar, "Pitch", TW_TYPE_FLOAT, m_model->getPitch(),
+		"step = 1 group=Model Position");
+	TwAddVarRW(myBar, "Roll", TW_TYPE_FLOAT, m_model->getRoll(),
+		"step = 1 group=Model Position");
+	TwAddVarRW(myBar, "Scale", TW_TYPE_INT32, m_model->getScaler(),
+		"step = 100000 group=Model Position");
 	TwAddVarRW(myBar, "Background Colour", TW_TYPE_COLOR4F, m_Renderer->getColour(),
 		"min = -100 max = 100 step = 10");
 }

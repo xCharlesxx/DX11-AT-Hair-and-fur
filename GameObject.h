@@ -3,10 +3,7 @@
 #include <string>
 
 using namespace DirectX;
-//using namespace DirectX::SimpleMath;
 
-class Camera;
-struct ID3D11DeviceContext;
 struct DrawData;
 
 class GameObject
@@ -15,6 +12,7 @@ public:
 	GameObject();
 	virtual ~GameObject();
 	virtual void draw(DrawData* _DD) = 0;
+	void updateWorldMatrix(); 
 	void tick(); 
 
 	//getters
@@ -24,9 +22,10 @@ public:
 	float*       getXPos() { return &m_posx; }
 	float*       getYPos() { return &m_posy; }
 	float*       getZPos() { return &m_posz; }
-	float		getPitch() { return m_pitch; }
-	float		getYaw() { return m_yaw; }
-	float		getRoll() { return m_roll; }
+	float*       getYaw() { return &m_yaw; }
+	float*       getPitch() { return &m_pitch; }
+	float*       getRoll() { return &m_roll; }
+	float*       getScaler() { return &m_scaler; }
 	bool		isPhysicsOn() { return m_physicsOn; }
 	float		getDrag() { return m_drag; }
 	std::string getPosStr() { return std::to_string(m_posx) + ", " + std::to_string(m_posy) + ", " + std::to_string(m_posz); }
@@ -37,7 +36,7 @@ public:
 	void		setScale(float _scale) { m_scale = _scale * XMVectorSet(1, 1, 1, 0); }
 	void		setScale(float _x, float _y, float _z) { m_scale = XMVectorSet(_x, _y, _z, 0); }
 	void		setScale(XMVECTOR _scale) { m_scale = _scale; }
-
+	void        setScaler(int scaler) { m_scaler = scaler; }
 	void		setPitch(float _pitch) { m_pitch = _pitch; }
 	void		setYaw(float _yaw) { m_yaw = _yaw; }
 	void		setRoll(float _roll) { m_roll = _roll; }
@@ -56,7 +55,8 @@ protected:
 	XMMATRIX m_fudge;
 	XMVECTOR m_pos;
 	float m_pitch, m_yaw, m_roll,
-		  m_posx, m_posy, m_posz;
+		  m_posx, m_posy, m_posz,
+		  m_scaler;
 	XMVECTOR m_scale;
 
 	//very basic physics

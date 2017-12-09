@@ -6,8 +6,9 @@ Model::Model(const char* pFile, DrawData* _DD)
 	getModel(pFile, *_DD->m_renderer);
 	createShaders(*_DD->m_renderer);
 	createRenderStates(*_DD->m_renderer);
-	this->setScale(XMVectorSet(1, 1, 1, 0));
-	this->setPos(0, 0, -1000);
+	//this->setScale(XMVectorSet(1, 1, 1, 0));
+	this->setPos(0, 0, 0);
+	this->setScaler(537616192);
 }
 
 Model::~Model()
@@ -69,12 +70,13 @@ void Model::getModel(const char* pFile, Renderer & renderer)
 	m_indexCount = indices.size(); 
 
 	auto vertexBufferDesc = CD3D11_BUFFER_DESC(sizeof(Vertice) * vertices.size(), D3D11_BIND_VERTEX_BUFFER);
-	
+	vertexBufferDesc.Usage = D3D11_USAGE_IMMUTABLE; 
 	D3D11_SUBRESOURCE_DATA vertexData = { 0 };
 	vertexData.pSysMem = &vertices[0];
 	renderer.getDevice()->CreateBuffer(&vertexBufferDesc, &vertexData, &m_vertexBuffer);
 
 	auto indexBufferDesc = CD3D11_BUFFER_DESC(sizeof(UINT) * indices.size(), D3D11_BIND_INDEX_BUFFER);
+	indexBufferDesc.Usage = D3D11_USAGE_IMMUTABLE;
 	D3D11_SUBRESOURCE_DATA indexData = { 0 };
 	indexData.pSysMem = &indices[0];
 	renderer.getDevice()->CreateBuffer(&indexBufferDesc, &indexData, &m_indexBuffer);
@@ -98,10 +100,9 @@ void Model::createShaders(Renderer & renderer)
 		{ "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
 		{ "COLOR", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 }
 	};
-	renderer.getDevice()->CreateInputLayout(layout, 2, vsData.data(), vsData.size(), &m_inputLayout);
+	UINT numElements = _countof(layout); 
+	renderer.getDevice()->CreateInputLayout(layout, numElements, vsData.data(), vsData.size(), &m_inputLayout);
 }
-
-
 
 void Model::createRenderStates(Renderer& renderer)
 {
@@ -126,16 +127,18 @@ void Model::createRenderStates(Renderer& renderer)
 		D3D11_STENCIL_OP_KEEP, D3D11_STENCIL_OP_KEEP, D3D11_STENCIL_OP_KEEP, D3D11_COMPARISON_ALWAYS);
 	renderer.getDevice()->CreateDepthStencilState(&depthDesc, &m_depthState);
 }
+
 void Model::draw(DrawData* _DD)
 {
 	auto deviceContext = _DD->m_renderer->getDeviceContext();
-	m_material->setTransformMatrix(XMMatrixTranspose(this->getWorldMat()));
+	m_material->setTransformMatrix(XMMatrixTranspose(m_worldMatrix));
 	m_material->setViewMatrix(XMMatrixTranspose(_DD->m_cam->getViewMatrix()));
 	m_material->setProjectionMatrix(XMMatrixTranspose(_DD->m_cam->getProjMatrix()));
 	m_material->updateBuffers(_DD);
 	m_material->setBuffers(_DD);
-	////Set render states
-	deviceContext->RSSetState(m_rasterizerState);
+
+	//////Set render states
+    deviceContext->RSSetState(m_rasterizerState);
 	deviceContext->OMSetBlendState(m_blendState, NULL, 0xffffffff);
 	deviceContext->OMSetDepthStencilState(m_depthState, 1);
 
