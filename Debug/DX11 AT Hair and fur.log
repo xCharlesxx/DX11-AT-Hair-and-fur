@@ -1,11 +1,11 @@
 ﻿  main.cpp
   c:\program files (x86)\windows kits\10\include\10.0.10586.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
 a:\github\newgithubrepo\dx11-at-hair-and-fur\gameobject.h(39): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-a:\github\newgithubrepo\dx11-at-hair-and-fur\main.cpp(32): warning C4316: 'Lighting': object allocated on the heap may not be aligned 16
-a:\github\newgithubrepo\dx11-at-hair-and-fur\main.cpp(33): warning C4316: 'Camera': object allocated on the heap may not be aligned 16
-a:\github\newgithubrepo\dx11-at-hair-and-fur\main.cpp(41): warning C4316: 'Model': object allocated on the heap may not be aligned 16
+a:\github\newgithubrepo\dx11-at-hair-and-fur\main.cpp(33): warning C4316: 'Lighting': object allocated on the heap may not be aligned 16
+a:\github\newgithubrepo\dx11-at-hair-and-fur\main.cpp(34): warning C4316: 'Camera': object allocated on the heap may not be aligned 16
+a:\github\newgithubrepo\dx11-at-hair-and-fur\main.cpp(42): warning C4316: 'Model': object allocated on the heap may not be aligned 16
 a:\programfiles\visualstudio2017\vc\tools\msvc\14.12.25827\include\memory(2585): warning C4316: 'Material': object allocated on the heap may not be aligned 16
-  a:\github\newgithubrepo\dx11-at-hair-and-fur\main.cpp(43): note: see reference to function template instantiation 'std::unique_ptr<Material,std::default_delete<_Ty>> std::make_unique<Material,,0>(void)' being compiled
+  a:\github\newgithubrepo\dx11-at-hair-and-fur\main.cpp(44): note: see reference to function template instantiation 'std::unique_ptr<Material,std::default_delete<_Ty>> std::make_unique<Material,,0>(void)' being compiled
           with
           [
               _Ty=Material

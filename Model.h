@@ -22,6 +22,7 @@ public:
 	Model(const char* pFile, DrawData* _DD);
 	~Model();
 	void getModel(const char* pFile, Renderer& renderer);
+	void createLight(); 
 	void setMaterial(Material* mat) { m_material = mat; };
 	void createShaders(Renderer& renderer);
 	void createRenderStates(Renderer& renderer);

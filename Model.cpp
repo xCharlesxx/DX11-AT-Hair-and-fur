@@ -33,6 +33,10 @@ void Model::getModel(const char* pFile, Renderer & renderer)
 	}
 	//Get file
 	auto modelFile = aiImportFile(pFile, aiProcessPreset_TargetRealtime_Fast);
+	if (!modelFile)
+		m_debug.Output("Error storing data in file: " + string(pFile));
+
+	
 	m_debug.Output("Number of meshes found in file: " + std::to_string(modelFile->mNumMeshes));
 	m_debug.Output("Number of vertices in meshes: ");
 	for (int i = 0; i < modelFile->mNumMeshes; i++)
@@ -83,6 +87,15 @@ void Model::getModel(const char* pFile, Renderer & renderer)
 
 }
 
+void Model::createLight()
+{
+	//light.pos = XMFLOAT3(0.0f, 0.0f, 0.0f);
+	//light.range = 100.0f;
+	//light.att = XMFLOAT3(0.0f, 0.2f, 0.0f);
+	//light.ambient = XMFLOAT4(0.3f, 0.3f, 0.3f, 1.0f);
+	//light.diffuse = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+}
+
 void Model::createShaders(Renderer & renderer)
 {
 	//Create shaders
@@ -97,8 +110,8 @@ void Model::createShaders(Renderer & renderer)
 
 	//Create input layout
 	D3D11_INPUT_ELEMENT_DESC layout[] = {
-		{ "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
-		{ "COLOR", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 }
+		{ "POSITION", 3, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+		{ "COLOR", 3, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 }
 	};
 	UINT numElements = _countof(layout); 
 	renderer.getDevice()->CreateInputLayout(layout, numElements, vsData.data(), vsData.size(), &m_inputLayout);
@@ -110,11 +123,11 @@ void Model::createRenderStates(Renderer& renderer)
 	auto rasterizerDesc = CD3D11_RASTERIZER_DESC(
 		D3D11_FILL_SOLID,
 		D3D11_CULL_NONE,
-		false,
+		true,
 		0, 0, 0, 0,
 		false, false, false);
 	renderer.getDevice()->CreateRasterizerState(&rasterizerDesc, &m_rasterizerState);
-
+	
 	//Blend state
 	auto blendDesc = CD3D11_BLEND_DESC(CD3D11_DEFAULT());
 	renderer.getDevice()->CreateBlendState(&blendDesc, &m_blendState);
@@ -147,7 +160,6 @@ void Model::draw(DrawData* _DD)
 	deviceContext->IASetInputLayout(m_inputLayout);
 	deviceContext->VSSetShader(m_vertexShader, nullptr, 0);
 	deviceContext->PSSetShader(m_pixelShader, nullptr, 0);
-
 	//Bind the vertex buffer
 	UINT stride = sizeof(Vertice);
 	UINT offset = 0;

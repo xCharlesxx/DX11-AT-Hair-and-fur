@@ -29,7 +29,8 @@ int CALLBACK WinMain(HINSTANCE appInstance, HINSTANCE prevInstance, LPSTR cmdLin
 	//Create window
 	m_Window = new Window(800, 600);
 	m_Renderer = new Renderer(*m_Window); 
-	m_light = new Lighting(XMFLOAT3(0, 10, 0), XMFLOAT4(1, 1, 1, 1));
+	m_light = new Lighting(XMFLOAT3(0, 10, 0), XMFLOAT4(1, 1, 1, 1), XMFLOAT3(0.0f, 0.2f, 0.0f), 100.0f,
+							XMFLOAT4(0.3f, 0.3f, 0.3f, 1.0f), XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f));
 	m_Camera = new Camera(0.4f*3.14f, (float)800 / 600, 1.0f, 1000.0f);
 	m_DD = new DrawData(); 
 	m_DD->m_renderer = m_Renderer;
@@ -103,7 +104,9 @@ void MakeAntTweakBar()
 	TwAddVarRW(myBar, "Roll", TW_TYPE_FLOAT, m_model->getRoll(),
 		"step = 1 group=Model Position");
 	TwAddVarRW(myBar, "Scale", TW_TYPE_INT32, m_model->getScaler(),
-		"step = 100000 group=Model Position");
+		"max = 530434493 step = 100000 group=Model Position");
 	TwAddVarRW(myBar, "Background Colour", TW_TYPE_COLOR4F, m_Renderer->getColour(),
+		"min = -100 max = 100 step = 10");
+	TwAddVarRW(myBar, "Model Colour", TW_TYPE_COLOR4F, m_Renderer->getColour(),
 		"min = -100 max = 100 step = 10");
 }

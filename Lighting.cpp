@@ -1,9 +1,14 @@
 #include "Lighting.h"
 
 
-Lighting::Lighting(XMFLOAT3 _pos, XMFLOAT4 _colour)
+Lighting::Lighting(XMFLOAT3 _pos, XMFLOAT4 _colour, XMFLOAT3 _attenuation, float _range, XMFLOAT4 _ambient, XMFLOAT4 _diffuse)
 {
 	setPos(_pos.x, _pos.y, _pos.z); 
+	colour = _colour; 
+	att = _attenuation; 
+	range = _range; 
+	ambient = _ambient; 
+	diffuse = _diffuse; 
 }
 
 XMFLOAT3 Lighting::ShiftTangent(XMFLOAT3 T, XMFLOAT3 N, float shift)

@@ -6,20 +6,21 @@ struct Input {
 struct Output {
 	float4 position : SV_POSITION;
 	float4 world_pos : POSITION; 
+	float2 TexCoord: TEXCOORD;
+	float3 normal : NORMAL; 
 	float3 color : COLOR;
 };
-
 
 cbuffer Object :register(b0)
 {
 	float4x4 m_model;
 }
 
-
 cbuffer Frame :register(b1)
 {
 	float4x4 m_view;
 	float4x4 m_projection;
+	float4x4 m_light;
 }
 
 Output main(Input input) {
